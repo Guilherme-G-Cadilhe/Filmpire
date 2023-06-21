@@ -8,4 +8,7 @@ Features:
 - Expanding and Responsive Menu Hamburguer with Avaliable Genres and Categories
 - Up to Date Movie Cards dynamic generated via API acting as Links to Movie Details
 - Rating and Tooltip of ?/10 of each Movie Card on Hover
-- Genre list dynamic generated via API
+- Dynamic Genre list generated via API
+- Choose the Language of your choosing, PT-BR or EN-US
+- Search for any Movie using the SearchBar
+- Create your account to save your favorite movies and see personalized recommendations.

@@ -8,14 +8,15 @@ import { useTheme } from '@mui/material/styles';
 import useStylesHook from './Nav-Bar.styles.js';
 
 // Complementary Components
-import { Sidebar } from '../../Complementary/complementaryExports.js';
+import { Sidebar, Search } from '../../Complementary/complementaryExports.js';
+import { fetchToken } from '../../../utils/index.js';
 
 const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const classes = useStylesHook();
   const isMobile = useMediaQuery('(max-width: 600px)');
   const theme = useTheme();
-  const isAuthenticated = true;
+  const isAuthenticated = false;
 
   return (
     <>
@@ -36,10 +37,10 @@ const NavBar = () => {
           <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => (console.log('Clicou Nightmode'))}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
-          {!isMobile && 'Search....'}
+          {!isMobile && <Search />}
           <div>
             {!isAuthenticated ? (
-              <Button color="inherit" onClick={() => (console.log('Clicou Login'))}>
+              <Button color="inherit" onClick={fetchToken}>
                 Login &nbsp; <AccountCircle />
               </Button>
 
@@ -60,7 +61,7 @@ const NavBar = () => {
               </Button>
             )}
           </div>
-          {isMobile && 'Search....'}
+          {isMobile && <Search />}
         </Toolbar>
       </AppBar>
       <div>

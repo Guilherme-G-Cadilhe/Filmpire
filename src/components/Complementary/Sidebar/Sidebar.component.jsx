@@ -25,9 +25,6 @@ const Sidebar = ({ setMobileOpen }) => {
   const theme = useTheme();
   const classes = useStylesHook();
   const dispatch = useDispatch();
-  console.log('data :>> ', data);
-  console.log('genreIcons :>> ', genreIcons.acao);
-  console.log('genreIdOrCategoryName :>> ', genreIdOrCategoryName);
   return (
     <>
       <Link to="/" className={classes.imageLink}>

@@ -13,6 +13,8 @@ import { Sidebar, Search } from '../../Complementary/complementaryExports.js';
 import { fetchToken, moviesApi, createSessionId } from '../../../utils/index.js';
 import { setUser, userSelector } from '../../../features/auth.js';
 
+import { LangTexts } from './LangTexts';
+
 const NavBar = () => {
   const { isAuthenticated, user } = useSelector(userSelector);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -20,6 +22,8 @@ const NavBar = () => {
   const isMobile = useMediaQuery('(max-width: 600px)');
   const theme = useTheme();
   const dispatch = useDispatch();
+
+  const currentLang = 'pt-BR'; // pt-BR  |  en
 
   const token = localStorage.getItem('request_token');
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
@@ -75,7 +79,7 @@ const NavBar = () => {
                 className={classes.linkButton}
                 onClick={() => (console.log('Clicou Perfil'))}
               >
-                {!isMobile && <>My Movies &nbsp;</>}
+                {!isMobile && <>{LangTexts[currentLang || 'en']?.loggedText} &nbsp;</>}
                 <Avatar
                   style={{ width: 30, height: 30 }}
                   alt="Profile"

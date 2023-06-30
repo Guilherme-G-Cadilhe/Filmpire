@@ -32,6 +32,16 @@ export const tmdbApi = createApi({
         return `/movie/popular?language=pt-BR&page=${page}&api_key=${tmdbApiKey}`;
       },
     }),
+    //* Get Movie~
+    getMovie: builder.query({
+      query: ((id) => `/movie/${id}?append_to_response=videos,credits&language=pt-BR&api_key=${tmdbApiKey}`),
+    }),
+
+    //* Get User Specific Lists~
+    getRecommendations: builder.query({
+      query: (({ movieId, list }) => `/movie/${movieId}/${list}?language=pt-BR&api_key=${tmdbApiKey}`),
+    }),
+
   }),
 });
 
@@ -39,4 +49,6 @@ export const tmdbApi = createApi({
 export const {
   useGetMoviesQuery,
   useGetGenresQuery,
+  useGetMovieQuery,
+  useGetRecommendationsQuery,
 } = tmdbApi;

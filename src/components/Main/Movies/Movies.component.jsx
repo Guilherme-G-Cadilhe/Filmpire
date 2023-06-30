@@ -8,11 +8,14 @@ import { useSelector } from 'react-redux';
 import { useGetMoviesQuery } from '../../../services/TMDB';
 import { MoviesList } from '../../Complementary/complementaryExports';
 import { selectGenreOrCategory } from '../../../features/currentGenreOrCategory';
+import { LangTexts } from './LangTexts';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
   const { genreIdOrCategoryName, searchQuery } = useSelector((state) => state.currentGenreOrCategory);
   const { data, error, isFetching } = useGetMoviesQuery({ genreIdOrCategoryName, page, searchQuery });
+
+  const currentLang = 'pt-BR'; // pt-BR  |    en
 
   if (isFetching) {
     return (
@@ -22,15 +25,15 @@ const Movies = () => {
     );
   }
 
-  if (error) return 'An error has occurred. Please try again later';
+  if (error) return LangTexts[currentLang || 'en']?.error;
 
   if (!data?.results.length) {
     return (
       <Box display="flex" alignItems="center" mt="20px">
         <Typography variant="h4">
-          No movies that match the criteria.
+          {LangTexts[currentLang || 'en']?.notFoundTop}
           <br />
-          Please search for something else.
+          {LangTexts[currentLang || 'en']?.notFoundBottom}
         </Typography>
       </Box>
     );

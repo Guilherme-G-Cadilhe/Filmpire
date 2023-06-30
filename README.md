@@ -12,3 +12,7 @@ Features:
 - Choose the Language of your choosing, PT-BR or EN-US
 - Search for any Movie using the SearchBar
 - Create your account to save your favorite movies and see personalized recommendations.
+- Movie Details with:
+  - Titles, Taglines, Ratings, Genres, Overview, Top Cast
+  - Links to Website, IMDB, Trailer Modal with embeded Youtube Video, Favorite Option and Watchlist
+  - Recommendations of Movies based on your Favorites, Watchlist and History

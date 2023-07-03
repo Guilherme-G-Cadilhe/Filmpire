@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import axios from 'axios';
-
 import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating } from '@mui/material';
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from '@mui/icons-material';
 import { useGetMovieQuery, useGetRecommendationsQuery } from '../../../services/TMDB';
@@ -23,15 +21,11 @@ const MoviesInformation = () => {
   const { data, isFetching, error } = useGetMovieQuery(id);
   const {
     data: recommendations,
-    isFetching: isRecommendationsFetching,
-    error: recommendationsError,
   } = useGetRecommendationsQuery({
     list: '/recommendations',
     movieId: id,
   });
   const classes = useStylesHook();
-  console.log('Recommendations :>> ', recommendations);
-  console.log('data :>> ', data);
 
   const isMovieFavorited = true;
   const isMovieWatchlisted = true;

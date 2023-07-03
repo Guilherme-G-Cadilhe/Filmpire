@@ -12,6 +12,7 @@ const Search = () => {
   const [query, setQuery] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
@@ -19,6 +20,8 @@ const Search = () => {
       history.push('/');
     }
   };
+
+  if (location.pathname !== '/') return null;
 
   return (
     <div className={classes.searchContainer}>

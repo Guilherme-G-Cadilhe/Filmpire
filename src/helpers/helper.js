@@ -20,3 +20,8 @@ export const removeSpecialChars = (text) => {
   string = string.replace(/,/g, '');
   return string;
 };
+
+export const getLocalizedBirthday = (birthday, lang = 'en') => {
+  if (lang === 'pt-BR') { return birthday.split('-').reverse().join('-'); }
+  return birthday;
+};

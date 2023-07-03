@@ -42,6 +42,16 @@ export const tmdbApi = createApi({
       query: (({ movieId, list }) => `/movie/${movieId}/${list}?language=pt-BR&api_key=${tmdbApiKey}`),
     }),
 
+    //* Get Actor Details~
+    getCast: builder.query({
+      query: ((castId) => `/person/${castId}?language=pt-BR&api_key=${tmdbApiKey}`),
+    }),
+
+    //* Get Actor Specific Movies Lists~
+    getCastMovies: builder.query({
+      query: (({ castId, page = 1 }) => `/discover/movie?with_cast=${castId}&language=pt-BR&page=${page}&api_key=${tmdbApiKey}`),
+    }),
+
   }),
 });
 
@@ -51,4 +61,6 @@ export const {
   useGetGenresQuery,
   useGetMovieQuery,
   useGetRecommendationsQuery,
+  useGetCastMoviesQuery,
+  useGetCastQuery,
 } = tmdbApi;

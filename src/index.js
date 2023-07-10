@@ -3,20 +3,20 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ToggleColorModeProvider from './utils/ToggleColorMode';
+
+import './index.css';
 
 import App from './components/App';
 import store from './app/store';
 
-const theme = createTheme({});
-
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    <ToggleColorModeProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ThemeProvider>
+    </ToggleColorModeProvider>
   </Provider>,
 
   document.getElementById('root'),

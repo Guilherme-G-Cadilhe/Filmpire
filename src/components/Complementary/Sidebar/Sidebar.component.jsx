@@ -42,7 +42,7 @@ const Sidebar = ({ setMobileOpen }) => {
               <ListItemIcon>
                 <img
                   src={genreIcons[value.toLowerCase()]}
-                  className={classes.genreImages}
+                  className={classes.genreImage}
                   height={30}
                 />
               </ListItemIcon>
@@ -66,7 +66,7 @@ const Sidebar = ({ setMobileOpen }) => {
                 <ListItemIcon>
                   <img
                     src={genreIcons[normalizedName]}
-                    className={classes.genreImages}
+                    className={classes.genreImage}
                     height={30}
                   />
                 </ListItemIcon>

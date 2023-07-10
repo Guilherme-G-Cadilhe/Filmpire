@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
-import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating } from '@mui/material';
+import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, Rating } from '@mui/material';
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from '@mui/icons-material';
-import { useGetMovieQuery, useGetRecommendationsQuery } from '../../../services/TMDB';
+import { useGetMovieQuery, useGetRecommendationsQuery, useGetUserListQuery } from '../../../services/TMDB';
 import useStylesHook from './Movies-Information.styles';
 import genreIcons from '../../../assets/genres';
 import { removeSpecialChars } from '../../../helpers/helper';
@@ -13,12 +14,29 @@ import { selectGenreOrCategory } from '../../../features/currentGenreOrCategory'
 
 import { LangTexts } from './LangTexts';
 import { MoviesList } from '../../Complementary/complementaryExports';
+import { userSelector } from '../../../features/auth';
 
 const MoviesInformation = () => {
+  const { user } = useSelector(userSelector);
   const { id } = useParams();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [isMovieFavorited, setIsMovieFavorited] = useState(false);
+  const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
   const { data, isFetching, error } = useGetMovieQuery(id);
+
+  const { data: favoriteMovies } = useGetUserListQuery({
+    listName: 'favorite/movies',
+    accountId: user.id,
+    sessionId: localStorage.getItem('session_id'),
+    page: 1,
+  });
+  const { data: watchlistMovies } = useGetUserListQuery({
+    listName: 'watchlist/movies',
+    accountId: user.id,
+    sessionId: localStorage.getItem('session_id'),
+    page: 1,
+  });
   const {
     data: recommendations,
   } = useGetRecommendationsQuery({
@@ -26,9 +44,6 @@ const MoviesInformation = () => {
     movieId: id,
   });
   const classes = useStylesHook();
-
-  const isMovieFavorited = true;
-  const isMovieWatchlisted = true;
   const currentLang = 'pt-BR'; // pt-BR  |  en
 
   const getMovieLang = () => {
@@ -38,11 +53,30 @@ const MoviesInformation = () => {
     return data.spoken_languages.find((lang) => lang.iso_639_1 === 'en')?.english_name || '';
   };
 
-  const addToFavorites = () => {
+  useEffect(() => {
+    setIsMovieFavorited(!!favoriteMovies?.results?.find((movie) => movie?.id === data?.id));
+  }, [favoriteMovies, data]);
+  useEffect(() => {
+    setIsMovieWatchlisted(!!watchlistMovies?.results?.find((movie) => movie?.id === data?.id));
+  }, [watchlistMovies, data]);
 
+  const addToFavorites = async () => {
+    await axios.post(`https://api.themoviedb.org/3/account/${user.id}/favorite?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, {
+      media_type: 'movie',
+      media_id: id,
+      favorite: !isMovieFavorited,
+    });
+
+    setIsMovieFavorited((prev) => !prev);
   };
-  const addToWatchlist = () => {
+  const addToWatchlist = async () => {
+    await axios.post(`https://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, {
+      media_type: 'movie',
+      media_id: id,
+      watchlist: !isMovieWatchlisted,
+    });
 
+    setIsMovieWatchlisted((prev) => !prev);
   };
 
   if (isFetching) {
@@ -63,7 +97,7 @@ const MoviesInformation = () => {
 
   return (
     <Grid container className={classes.containerSpaceAround}>
-      <Grid item sm={12} lg={4}>
+      <Grid item sm={12} lg={4} style={{ marginBottom: '30px' }}>
         <img
           className={classes.poster}
           src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
@@ -133,7 +167,7 @@ const MoviesInformation = () => {
                 <Button target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${data?.imdb_id}`} endIcon={<MovieIcon />}>
                   IMDB
                 </Button>
-                <Button onClick={() => setOpen(true)} href="#" endIcon={<Theaters />}>
+                <Button disabled={!data?.video} onClick={() => setOpen(true)} href="#" endIcon={<Theaters />}>
                   Trailer
                 </Button>
               </ButtonGroup>
@@ -143,7 +177,7 @@ const MoviesInformation = () => {
                 <Button onClick={addToFavorites} endIcon={isMovieFavorited ? <Favorite /> : <FavoriteBorderOutlined />}>
                   {isMovieFavorited ? LangTexts[currentLang || 'en']?.unfavorite : LangTexts[currentLang || 'en']?.favorite}
                 </Button>
-                <Button onClick={addToFavorites} endIcon={isMovieWatchlisted ? <Remove /> : <PlusOne />}>
+                <Button onClick={addToWatchlist} endIcon={isMovieWatchlisted ? <Remove /> : <PlusOne />}>
                   Watchlist
                 </Button>
                 <Button endIcon={<ArrowBack />} sx={{ borderColor: 'primary.main' }}>
@@ -158,13 +192,13 @@ const MoviesInformation = () => {
         <Typography variant="h3" gutterBottom align="center">{LangTexts[currentLang || 'en']?.recommendations}</Typography>
         {recommendations ? <MoviesList movies={recommendations} numberOfMovies={12} /> : <Box>{LangTexts[currentLang || 'en']?.noRecommendations}</Box>}
       </Box>
-      <Modal
-        closeAfterTransition
-        className={classes.modal}
-        open={open}
-        onClose={() => setOpen(false)}
-      >
-        {data?.videos?.results?.length > 0 && (
+      {data?.videos?.results?.length > 0 && (
+        <Modal
+          closeAfterTransition
+          className={classes.modal}
+          open={open}
+          onClose={() => setOpen(false)}
+        >
           <iframe
             autoPlay
             className={classes.videos}
@@ -173,8 +207,9 @@ const MoviesInformation = () => {
             src={`https://www.youtube.com/embed/${data?.videos?.results[0].key}`}
             allow="autoplay"
           />
-        )}
-      </Modal>
+
+        </Modal>
+      )}
     </Grid>
   );
 };

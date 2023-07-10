@@ -16,11 +16,9 @@ const Actors = () => {
   const history = useHistory();
   const classes = useStylesHook();
   const { data, isFetching, error } = useGetCastQuery(id);
-  console.log('data :>> ', data);
   const {
     data: actorMovies,
   } = useGetCastMoviesQuery({ castId: id, page });
-  console.log('actorMovies :>> ', actorMovies);
 
   const currentLang = 'pt-BR'; // pt-BR  |  en
 

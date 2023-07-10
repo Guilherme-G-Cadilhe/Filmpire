@@ -4,7 +4,7 @@ export const LangTexts = {
     genres: 'Genres',
     mainCategories: [
       { label: 'Popular', value: 'popular' },
-      { label: 'Top Rated', value: 'top rated' },
+      { label: 'Top Rated', value: 'top_rated' },
       { label: 'Upcoming', value: 'upcoming' },
     ],
   },
@@ -13,7 +13,7 @@ export const LangTexts = {
     genres: 'Gêneros',
     mainCategories: [
       { label: 'Popular', value: 'popular' },
-      { label: 'Melhor Avaliados', value: 'top rated' },
+      { label: 'Melhor Avaliados', value: 'top_rated' },
       { label: 'Novos', value: 'upcoming' },
     ],
   },

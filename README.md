@@ -14,9 +14,12 @@ Features:
 - Create your account to save your favorite movies and see personalized recommendations.
 - Movie Details with:
   - Titles, Taglines, Ratings, Genres, Overview, Top Cast
-  - Links to Website, IMDB, Trailer Modal with embeded Youtube Video, Favorite Option and Watchlist
+  - Links to Website, IMDB, Trailer Modal with embeded Youtube Video, Favorite Option and Watchlist Option
   - Recommendations of Movies based on your Favorites, Watchlist and History
 - Actor Details with:
   - Birthday
   - Biography
   - Others featured in Movies
+- Profile Details with:
+  - Favorite Movies
+  - Watchlisted Movies

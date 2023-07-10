@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AppBar, IconButton, Toolbar, Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import useStylesHook from './Nav-Bar.styles.js';
 import { Sidebar, Search } from '../../Complementary/complementaryExports.js';
 import { fetchToken, moviesApi, createSessionId } from '../../../utils/index.js';
 import { setUser, userSelector } from '../../../features/auth.js';
+import { ColorModeContext } from '../../../utils/ToggleColorMode.jsx';
 
 import { LangTexts } from './LangTexts';
 
@@ -23,6 +24,7 @@ const NavBar = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
 
+  const { toggleColorMode } = useContext(ColorModeContext);
   const currentLang = 'pt-BR'; // pt-BR  |  en
 
   const token = localStorage.getItem('request_token');
@@ -61,7 +63,7 @@ const NavBar = () => {
             </IconButton>
           )}
           {/* 'ml': margin left */}
-          <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => (console.log('Clicou Nightmode'))}>
+          <IconButton color="inherit" sx={{ ml: 1 }} onClick={toggleColorMode}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
           {!isMobile && <Search />}
@@ -77,7 +79,6 @@ const NavBar = () => {
                 component={Link}
                 to={`/profile/${user.id}`}
                 className={classes.linkButton}
-                onClick={() => (console.log('Clicou Perfil'))}
               >
                 {!isMobile && <>{LangTexts[currentLang || 'en']?.loggedText} &nbsp;</>}
                 <Avatar

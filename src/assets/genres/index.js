@@ -44,7 +44,7 @@ export default {
   western,
 
   popular,
-  'top rated': topRated,
+  top_rated: topRated,
   upcoming,
 
   acao: action,

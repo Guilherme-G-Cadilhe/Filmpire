@@ -13,7 +13,9 @@ import { Sidebar, Search } from '../../Complementary/complementaryExports.js';
 import { fetchToken, moviesApi, createSessionId } from '../../../utils/index.js';
 import { setUser, userSelector } from '../../../features/auth.js';
 import { ColorModeContext } from '../../../utils/ToggleColorMode.jsx';
+import { LanguageContext } from '../../../utils/ToggleLanguage.jsx';
 
+import langIcons from '../../../assets/languages';
 import { LangTexts } from './LangTexts';
 
 const NavBar = () => {
@@ -25,7 +27,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const { toggleColorMode } = useContext(ColorModeContext);
-  const currentLang = 'pt-BR'; // pt-BR  |  en
+  const { currentLang, toggleLanguage } = useContext(LanguageContext);
 
   const token = localStorage.getItem('request_token');
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
@@ -65,6 +67,19 @@ const NavBar = () => {
           {/* 'ml': margin left */}
           <IconButton color="inherit" sx={{ ml: 1 }} onClick={toggleColorMode}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+          </IconButton>
+          <IconButton color="inherit" sx={{ ml: 1 }} onClick={toggleLanguage}>
+            {currentLang === 'en' ? (
+              <img
+                src={langIcons.eua}
+                height={30}
+              />
+            ) : (
+              <img
+                src={langIcons.brasil}
+                height={30}
+              />
+            )}
           </IconButton>
           {!isMobile && <Search />}
           <div>

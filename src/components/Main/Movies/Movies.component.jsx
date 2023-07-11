@@ -1,23 +1,23 @@
 
 // COLOCAR TRADUÇÃO EM PORTUGUES E INGLES DINAMICA
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, CircularProgress, useMediaQuery, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 import { useGetMoviesQuery } from '../../../services/TMDB';
 import { MoviesList, Pagination } from '../../Complementary/complementaryExports';
 import { LangTexts } from './LangTexts';
+import { LanguageContext } from '../../../utils/ToggleLanguage';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
+  const { currentLang } = useContext(LanguageContext);
   const { genreIdOrCategoryName, searchQuery } = useSelector((state) => state.currentGenreOrCategory);
-  const { data, error, isFetching } = useGetMoviesQuery({ genreIdOrCategoryName, page, searchQuery });
+  const { data, error, isFetching } = useGetMoviesQuery({ genreIdOrCategoryName, page, searchQuery, language: currentLang });
   const lg = useMediaQuery((theme) => theme.breakpoints.only('lg'));
 
   const numberOfMovies = lg ? 16 : 18;
-
-  const currentLang = 'pt-BR'; // pt-BR  |    en
 
   if (isFetching) {
     return (

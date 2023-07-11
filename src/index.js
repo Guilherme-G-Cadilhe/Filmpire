@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import ToggleColorModeProvider from './utils/ToggleColorMode';
+import ToggleLanguage from './utils/ToggleLanguage';
 
 import './index.css';
 
@@ -13,9 +14,11 @@ import store from './app/store';
 ReactDOM.render(
   <Provider store={store}>
     <ToggleColorModeProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ToggleLanguage>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ToggleLanguage>
     </ToggleColorModeProvider>
   </Provider>,
 

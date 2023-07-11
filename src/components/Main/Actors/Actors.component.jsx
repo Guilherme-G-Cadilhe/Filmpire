@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { Typography, Button, Grid, Box, CircularProgress } from '@mui/material';
@@ -9,18 +9,18 @@ import { LangTexts } from './LangTexts';
 import { useGetCastMoviesQuery, useGetCastQuery } from '../../../services/TMDB';
 import { MoviesList, Pagination } from '../../Complementary/complementaryExports';
 import { getLocalizedBirthday } from '../../../helpers/helper';
+import { LanguageContext } from '../../../utils/ToggleLanguage';
 
 const Actors = () => {
   const { id } = useParams();
   const [page, setPage] = useState(1);
   const history = useHistory();
   const classes = useStylesHook();
-  const { data, isFetching, error } = useGetCastQuery(id);
+  const { currentLang } = useContext(LanguageContext);
+  const { data, isFetching, error } = useGetCastQuery({ castId: id, language: currentLang });
   const {
     data: actorMovies,
-  } = useGetCastMoviesQuery({ castId: id, page });
-
-  const currentLang = 'pt-BR'; // pt-BR  |  en
+  } = useGetCastMoviesQuery({ castId: id, page, language: currentLang });
 
   if (isFetching) {
     return (

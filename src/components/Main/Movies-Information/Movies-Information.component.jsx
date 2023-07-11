@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -15,36 +15,43 @@ import { selectGenreOrCategory } from '../../../features/currentGenreOrCategory'
 import { LangTexts } from './LangTexts';
 import { MoviesList } from '../../Complementary/complementaryExports';
 import { userSelector } from '../../../features/auth';
+import { LanguageContext } from '../../../utils/ToggleLanguage';
 
 const MoviesInformation = () => {
   const { user } = useSelector(userSelector);
+  const { currentLang } = useContext(LanguageContext);
   const { id } = useParams();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isMovieFavorited, setIsMovieFavorited] = useState(false);
   const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
-  const { data, isFetching, error } = useGetMovieQuery(id);
+  const { data, isFetching, error } = useGetMovieQuery({ id, language: currentLang });
+
+  console.log('currentLang :>> ', currentLang);
+  console.log('data :>> ', data);
 
   const { data: favoriteMovies } = useGetUserListQuery({
     listName: 'favorite/movies',
     accountId: user.id,
     sessionId: localStorage.getItem('session_id'),
     page: 1,
+    language: currentLang,
   });
   const { data: watchlistMovies } = useGetUserListQuery({
     listName: 'watchlist/movies',
     accountId: user.id,
     sessionId: localStorage.getItem('session_id'),
     page: 1,
+    language: currentLang,
   });
   const {
     data: recommendations,
   } = useGetRecommendationsQuery({
     list: '/recommendations',
     movieId: id,
+    language: currentLang,
   });
   const classes = useStylesHook();
-  const currentLang = 'pt-BR'; // pt-BR  |  en
 
   const getMovieLang = () => {
     let primaryLanguage = data.spoken_languages.find((lang) => lang.iso_639_1 === currentLang);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, Button, Box } from '@mui/material';
 import { ExitToApp } from '@mui/icons-material';
@@ -8,6 +8,7 @@ import { useGetUserListQuery } from '../../../services/TMDB';
 
 import { LangTexts } from './LangTexts';
 import { RatedCards } from '../../Complementary/complementaryExports';
+import { LanguageContext } from '../../../utils/ToggleLanguage';
 
 const Profile = () => {
   const { user } = useSelector(userSelector);
@@ -24,10 +25,8 @@ const Profile = () => {
     sessionId: localStorage.getItem('session_id'),
     page: 1,
   });
-  console.log('favoriteMovies :>> ', favoriteMovies);
-  console.log('watchlistMovies :>> ', watchlistMovies);
 
-  const currentLang = 'pt-BR'; // pt-BR  |  en
+  const { currentLang } = useContext(LanguageContext);
 
   useEffect(() => {
     refetchFavorites();

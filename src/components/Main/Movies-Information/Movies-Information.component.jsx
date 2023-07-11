@@ -27,9 +27,6 @@ const MoviesInformation = () => {
   const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
   const { data, isFetching, error } = useGetMovieQuery({ id, language: currentLang });
 
-  console.log('currentLang :>> ', currentLang);
-  console.log('data :>> ', data);
-
   const { data: favoriteMovies } = useGetUserListQuery({
     listName: 'favorite/movies',
     accountId: user.id,

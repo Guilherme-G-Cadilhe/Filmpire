@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { CssBaseline } from '@mui/material';
 import { Route, Switch } from 'react-router-dom';
 
@@ -12,7 +12,6 @@ import useAlanAI from './AlanAI';
 const App = () => {
   const classes = useStylesHook();
   useAlanAI();
-  const alanAiBtnContainer = useRef();
 
   return (
     <div className={classes.root}>
@@ -35,7 +34,6 @@ const App = () => {
           </Route>
         </Switch>
       </main>
-      <div ref={alanAiBtnContainer} />
     </div>
   );
 };

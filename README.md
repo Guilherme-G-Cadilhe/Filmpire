@@ -6,6 +6,7 @@ Features:
 
 - Toggleable NightMode
 - Choose the Language of your choosing, PT-BR or EN-US
+- Navigate with an AI Assistant when in the EN-US language
 - Expanding and Responsive Menu Hamburguer with Avaliable Genres and Categories
 - Up to Date Movie Cards dynamic generated via API acting as Links to Movie Details
 - Rating and Tooltip of ?/10 of each Movie Card on Hover

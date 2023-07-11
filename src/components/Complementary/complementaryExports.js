@@ -4,4 +4,5 @@ export { default as Movie } from './Movie/Movie.component';
 export { default as Search } from './Search/Search.component';
 export { default as Pagination } from './Pagination/Pagination.component';
 export { default as RatedCards } from './Rated-Cards/Rated-Cards.component';
+export { default as FeaturedMovie } from './Featured-Movie/Featured-Movie.component';
 

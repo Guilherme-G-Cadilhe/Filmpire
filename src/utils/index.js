@@ -17,6 +17,7 @@ export const fetchToken = async () => {
       window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=${window.location.origin}/approved`;
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log('error creating token :>> ', error);
   }
 };
@@ -32,6 +33,7 @@ export const createSessionId = async () => {
       localStorage.setItem('session_id', data.session_id);
       return data.session_id;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log('error creating session :>> ', error);
     }
   }

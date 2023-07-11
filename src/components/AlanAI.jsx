@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import alanBtn from '@alan-ai/alan-sdk-web';
@@ -11,12 +11,12 @@ import { selectGenreOrCategory, searchMovie } from '../features/currentGenreOrCa
 const useAlanAI = () => {
   const { setMode } = useContext(ColorModeContext);
   const { currentLang } = useContext(LanguageContext);
-  console.log('currentLang :>> ', currentLang);
   const dispatch = useDispatch();
   const history = useHistory();
+  const alanAiBtnContainer = useRef({}).current;
 
   useEffect(() => {
-    alanBtn({
+    alanAiBtnContainer.btnInstance = alanBtn({
       key: process.env.REACT_APP_ALAN_SDK_KEY,
       onCommand: ({ command, mode, genres, genreOrCategory, query }) => {
         if (command === 'chooseGenre') {
@@ -47,6 +47,15 @@ const useAlanAI = () => {
       },
     });
   }, []);
+
+  useEffect(() => {
+    const alanAiDOM = document.getElementsByClassName('alanBtn-root')?.[0];
+    if (currentLang === 'en') {
+      alanAiDOM.style.display = 'block';
+    } else {
+      alanAiDOM.style.display = 'none';
+    }
+  }, [currentLang]);
 };
 
 export default useAlanAI;

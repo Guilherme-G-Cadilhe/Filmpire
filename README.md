@@ -13,8 +13,17 @@
 ---
 
 <p align="center">
-  <img alt="FilmpireDemo" title="Filmpire" src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125" />
+  <video>
+  <source src="/public/githubMedia/demo.mp4">
+  </video>
 </p>
+
+<video>
+  <source src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125">
+  </video>
+<!-- <p align="center">
+  <img alt="FilmpireDemo" title="Filmpire" src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125" />
+</p> -->
 
 ---
 

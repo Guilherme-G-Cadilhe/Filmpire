@@ -127,8 +127,7 @@
 > **Randomize going to a Genre/Category**
 > 'surprise me'
 
-</details
-
+</details>
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
@@ -186,12 +185,12 @@
   - Links to: **Website, IMDB, Trailer Modal with embeded Youtube Video, Favorite Option and Watchlist Option**.
   - **Recommendations of Movies**
 
-  <details>
-  <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-    <br>
-    <img alt="X" title="Filmpire" src="" width="800px" />
-  </details
+<details>
+<summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
+  <img alt="X" title="Filmpire" src="" width="800px" />
+</details
+<br>
 
 ---
 

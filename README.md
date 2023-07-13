@@ -60,7 +60,7 @@
 <br>
 
 <h1 align="center" >
-<a href="">🚀 Website Page With Deploy on NETLIFY </a>
+<a href="https://bobnini-filmpire.netlify.app/">🚀 Website Page With Deploy on NETLIFY </a>
 </h1>
 
 <h2 id ="about" align="center">📌 About</h2>
@@ -260,6 +260,8 @@ REACT_APP_ALAN_SDK_KEY=<put your key here>
 ```sh
 npm run start
 ```
+
+4. If you have problems connecting with REST Calls, disable any Adblock/Ghostery or similar extensions.
 
 <br>
 

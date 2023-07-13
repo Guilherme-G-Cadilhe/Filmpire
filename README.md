@@ -60,7 +60,7 @@
 <br>
 
 <h1 align="center" >
-<a href="">🚀 Website Page With Deploy on HEROKU </a>
+<a href="">🚀 Website Page With Deploy on NETLIFY </a>
 </h1>
 
 <h2 id ="about" align="center">📌 About</h2>
@@ -89,21 +89,23 @@
 
 - On the **Navigation Bar** you can easily toogle languages between **PT-BR and EN-US**.
 - Changing Language changes the **UI** and the **Data**.
-- When in **EN-US**, the **AI Assistant** is **ENABLED**
-  <details>
-  <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-   <br>
-   <img alt="X" title="Filmpire" src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125" width="800px" />
-  </details
+- When in **EN-US**, the **AI Assistant** is **ENABLED**.
+
+<details>
+<summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
-   
-   ---
+  <img alt="X" title="Filmpire" src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125" width="800px" />
+</details
+<br>
+
+---
 
 <h3> 🧷 Navigate with an AI Assistant (EN-US)</h3>
 
 - When in **EN-US**, the **AI Alan Button appears on the Bottom Right Corner of the Screen**.
 - Make it **Listen for Voice Commands after Clicking on its Icon** ( Allow Access to Microphone First).
-- Try to say **"Help"** or **"What do you do?"** to get an Overview about the Application and some Commands
+- Try to say **"Help"** or **"What do you do?"** to get an Overview about the Application and some Commands.
+
 <details>
 <summary> <b> List of Commands </b> <i>(Click here to Expand it!)</i> </summary>
 
@@ -126,6 +128,7 @@
 > 'surprise me'
 
 </details
+
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
@@ -138,7 +141,7 @@
 <h3> 🧷 Menu Hamburguer ( Mobile Friendly )</h3>
 
 - On **Mobile** the Fixed Menu turns into a **Expanding and Responsive Menu Hamburguer with Avaliable Genres and Categories**.
-- Clicking on any of the Options refreshes the Movies and Closes the Menu
+- Clicking on any of the Options refreshes the Movies and Closes the Menu.
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
@@ -151,24 +154,26 @@
 <h3> 🧷 Search Bar</h3>
 
 - **Search for Movies Names** using the search bar in the Middle of the Navigation Bar.
-  <details>
-  <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-   <br>
-   <img alt="X" title="Filmpire" src="" width="800px" />
-  </details
+
+<details>
+<summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
+  <img alt="X" title="Filmpire" src="" width="800px" />
+</details
+<br>
 
 ---
 
 <h3> 🧷 Profile Account</h3>
 
 - Create your account to save your **Favorite Movies** and see personalized recommendations..
-  <details>
-  <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-   <br>
-   <img alt="X" title="Filmpire" src="" width="800px" />
-  </details
+
+<details>
+<summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
+  <img alt="X" title="Filmpire" src="" width="800px" />
+</details
+<br>
 
 ---
 
@@ -176,13 +181,15 @@
 
 - **Up to Date** Movie Cards dynamic generated via API acting as **Links to Movie Details**.
 - Movie Details Page with the following Features:
+
   - **Titles, Taglines, Ratings, Genres, Overview, Top Cast**.
   - Links to: **Website, IMDB, Trailer Modal with embeded Youtube Video, Favorite Option and Watchlist Option**.
   - **Recommendations of Movies**
+
   <details>
   <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-   <br>
-   <img alt="X" title="Filmpire" src="" width="800px" />
+    <br>
+    <img alt="X" title="Filmpire" src="" width="800px" />
   </details
   <br>
 
@@ -192,12 +199,13 @@
 
 - **Birthday, Biography**.
 - **List of Movies it was casted also** on the Recommendations at the Bottom.
-  <details>
-  <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-   <br>
-   <img alt="X" title="Filmpire" src="" width="800px" />
-  </details
-  <br>
+
+<details>
+<summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
+ <br>
+ <img alt="X" title="Filmpire" src="" width="800px" />
+</details
+<br>
 
 ---
 
@@ -205,12 +213,13 @@
 
 - **List of Favorited Movies on the Account**.
 - **List of Watchlisted Movies on the Account**.
-  <details>
-  <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
-   <br>
-   <img alt="X" title="Filmpire" src="" width="800px" />
-  </details
-  <br>
+
+<details>
+<summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
+ <br>
+ <img alt="X" title="Filmpire" src="" width="800px" />
+</details
+<br>
 
 ---
 

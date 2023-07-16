@@ -144,7 +144,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
- <img alt="X" title="Filmpire" src="./public/githubMedia/menuHamburguer-feature.gif" width="800px" />
+ <img alt="X" title="Filmpire" src="./public/githubMedia/menuHamburguer-feature.gif" width="200px" height="400px" />
 </details
 <br>
 

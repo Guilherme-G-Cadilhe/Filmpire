@@ -13,7 +13,7 @@
 ---
 
 <p align="center">
-  <img alt="FilmpireDemo" title="Filmpire" src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125" />
+  <img alt="FilmpireDemo" title="Filmpire" src="./public/githubMedia/fullDemo.gif"/>
 </p>
 
 ---
@@ -79,7 +79,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
-  <img alt="X" title="Filmpire" src="https://www.loom.com/embed/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=b4135e55-4e27-491c-a536-dd19ccad401f" width="800px" />
+  <img alt="X" title="Filmpire" src="./public/githubMedia/darkmode-feature.gif" width="800px" />
 </details
 <br>
  
@@ -94,7 +94,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
-  <img alt="X" title="Filmpire" src="https://www.loom.com/share/f4e0a1ed92bb4eb7bc7dca4fd494f246?sid=2e215d3a-9f26-4f04-a5b3-527b451de125" width="800px" />
+  <img alt="X" title="Filmpire" src="./public/githubMedia/language-feature.gif" width="800px" />
 </details
 <br>
 
@@ -131,7 +131,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
- <img alt="X" title="Filmpire" src="" width="800px" />
+ <img alt="X" title="Filmpire" src="./public/githubMedia/AI-feature.gif" width="800px" />
 </details
 <br>
  
@@ -144,7 +144,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
- <img alt="X" title="Filmpire" src="" width="800px" />
+ <img alt="X" title="Filmpire" src="./public/githubMedia/menuHamburguer-feature.gif" width="800px" />
 </details
 <br>
 
@@ -157,7 +157,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
-  <img alt="X" title="Filmpire" src="" width="800px" />
+  <img alt="X" title="Filmpire" src="./public/githubMedia/search-feature.gif" width="800px" />
 </details
 <br>
 
@@ -170,7 +170,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
-  <img alt="X" title="Filmpire" src="" width="800px" />
+  <img alt="X" title="Filmpire" src="./public/githubMedia/profile-feature.gif" width="800px" />
 </details
 <br>
 
@@ -188,7 +188,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
   <br>
-  <img alt="X" title="Filmpire" src="" width="800px" />
+  <img alt="X" title="Filmpire" src="./public/githubMedia/movieDetails-feature.gif" width="800px" />
 </details
 <br>
 
@@ -202,7 +202,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
- <img alt="X" title="Filmpire" src="" width="800px" />
+ <img alt="X" title="Filmpire" src="./public/githubMedia/actorDetails-feature.gif" width="800px" />
 </details
 <br>
 
@@ -216,7 +216,7 @@
 <details>
 <summary> <b> Demonstration Gif </b> <i>(Click here to Expand it!)</i> </summary>
  <br>
- <img alt="X" title="Filmpire" src="" width="800px" />
+ <img alt="X" title="Filmpire" src="./public/githubMedia/profile-feature.gif" width="800px" />
 </details
 <br>
 
